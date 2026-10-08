@@ -46,6 +46,22 @@ It should look like this:
 12:00:09 Logistics map on http://0.0.0.0:8050
 ```
 
+## Deploy on Railway
+
+Create a Railway project from this GitHub repository and deploy the service. Railway uses the root `Dockerfile`;
+the service listens on Railway's injected `PORT`, and `/api/status` is used as the health check.
+
+Set the service variables for your save source, for example:
+```ini
+SAVE_SOURCE=api://my-server.example:7777
+SAVE_PASSWORD=your-admin-password
+MAP_PIN_PASSWORD=a-password-for-other-players
+```
+
+Add a Railway volume mounted at `/data` to keep history, notes, and fetched saves across deployments. The save server
+must be reachable from Railway; use its server API, SFTP, or FTP source rather than a local folder. Generate a public
+domain in the service's Networking settings if you want to access the map over the internet.
+
 ## Different port
 Change the left number in `docker-compose.yml`, e.g. `"8080:8050"` → map on port 8080.
 

@@ -32,7 +32,8 @@ Without a mod, everything comes from the save, at the autosave interval (usually
 [FicsIt Remote Monitoring](docs/FRM.md), positions update every 5 s and machines and power every minute.
 
 **Detailed guides in the [wiki](https://github.com/Fade97/satisfactory-logistics-map/wiki)**: installation,
-save source per server type, live data, reverse proxy, how-tos, troubleshooting, API.
+save source per server type, [Railway deployment](https://github.com/Fade97/satisfactory-logistics-map/wiki/Installation-with-Docker#deploy-on-railway),
+live data, reverse proxy, how-tos, troubleshooting, API.
 
 ## Quick start with Docker
 

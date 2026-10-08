@@ -22,5 +22,5 @@ USER map
 ENV MAP_DATA=/data MAP_SAVES=/data/saves PYTHONUNBUFFERED=1 TZ=Europe/Berlin
 VOLUME /data
 EXPOSE 8050
-HEALTHCHECK --interval=60s --timeout=5s CMD python -c "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8050/api/status', timeout=4)"
-CMD ["python", "-u", "mapd.py", "--port", "8050"]
+HEALTHCHECK --interval=60s --timeout=5s CMD python -c "import os, urllib.request; urllib.request.urlopen('http://127.0.0.1:%s/api/status' % os.environ.get('PORT', '8050'), timeout=4)"
+CMD ["python", "-u", "mapd.py"]
