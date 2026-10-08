@@ -23,7 +23,7 @@ from mapsvc.http import RequestHandler, Server
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument('--port', type=int, default=8050)
+    ap.add_argument('--port', type=int, default=int(os.environ.get('PORT', '8050')))
     ap.add_argument('--bind', default='0.0.0.0')
     ap.add_argument('--no-fetch', action='store_true', help='only read saves/latest.sav, do not fetch from the server')
     args = ap.parse_args()
